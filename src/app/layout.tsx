@@ -1,17 +1,16 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
+import { cn } from "@/lib/utils";
+import { Inter } from 'next/font/google'
+import Navbar from "@/components/Navbar";
+import Providers from "@/components/Providers";
+import "react-loading-skeleton/dist/skeleton.css"
+import 'simplebar-react/dist/simplebar.min.css';
 
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
-});
-const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-  weight: "100 900",
-});
+import { Toaster } from "@/components/ui/toaster";
+
+const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -25,11 +24,18 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        {children}
-      </body>
+      <Providers>
+        <body
+          className={cn(
+            'min-h-screen font-sans antialiased grainy',
+            inter.className
+          )}
+        >
+          <Toaster />
+          <Navbar />
+          {children}
+        </body>
+      </Providers>
     </html>
   );
 }
