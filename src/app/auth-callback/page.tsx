@@ -10,7 +10,7 @@ const AuthCallbackPage = () => {
   const searchParams = useSearchParams();
   const origin = searchParams.get("origin");
 
-  const { data, isSuccess, isError, isLoading } = trpc.authCallback.useQuery(
+  const { isSuccess, isError } = trpc.authCallback.useQuery(
     undefined,
     {
       retry: true,

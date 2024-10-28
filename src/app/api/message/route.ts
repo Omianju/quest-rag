@@ -9,7 +9,7 @@ import { GoogleGenerativeAI } from "@google/generative-ai";
 import { StreamingTextResponse } from "ai";
 
 
-export const POST = async (req: NextRequest, res: NextResponse) => {
+export const POST = async (req: NextRequest) => {
   try {
     // Authorising after that receiving and sending message.
     const body = await req.json();
@@ -29,7 +29,7 @@ export const POST = async (req: NextRequest, res: NextResponse) => {
 
     if (!file) return new Response("file not found!", { status: 403 });
 
-    const createdMessage = await db.message.create({
+    await db.message.create({
       data: {
         text: message,
         isUserMessage: true,

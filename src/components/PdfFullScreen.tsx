@@ -14,7 +14,7 @@ interface PdfFullScreenProps {
 const PdfFullScreen = ({ url }: PdfFullScreenProps) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [numPages, setNumPages] = useState<number>();
-  const [currPage, setCurrPage] = useState<number>(1);
+  // const [currPage, setCurrPage] = useState<number>(1);
   const { ref, width } = useResizeDetector();
   const { toast } = useToast();
   return (

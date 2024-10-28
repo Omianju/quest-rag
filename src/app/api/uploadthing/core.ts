@@ -14,7 +14,7 @@ const f = createUploadthing();
 
 export const ourFileRouter = {
   pdfUploader: f({ pdf: { maxFileSize: "16MB" } })
-    .middleware(async ({ req }) => {
+    .middleware(async () => {
       const { getUser } = getKindeServerSession();
       const user = await getUser();
 
@@ -43,7 +43,9 @@ export const ourFileRouter = {
 
         const loader = new PDFLoader(blob);
         const pageLevelDocs = await loader.load();
-        const pdfLength = pageLevelDocs.length;
+        
+        // left for pdfLength
+        pageLevelDocs.length;
       
         // vectorizing and index entire document
 
