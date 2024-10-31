@@ -1,12 +1,12 @@
-import { SendMessageValidator } from "@/lib/validators/SendMessageValidator";
-import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
-import { NextRequest, NextResponse } from "next/server";
 import db from "@/lib/db";
-import pc from "@/lib/pinecone";
-import { PineconeStore } from "@langchain/pinecone";
 import { embeddings } from "@/lib/embedding";
+import pc from "@/lib/pinecone";
+import { SendMessageValidator } from "@/lib/validators/SendMessageValidator";
 import { GoogleGenerativeAI } from "@google/generative-ai";
+import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
+import { PineconeStore } from "@langchain/pinecone";
 import { StreamingTextResponse } from "ai";
+import { NextRequest } from "next/server";
 
 
 export const POST = async (req: NextRequest) => {
