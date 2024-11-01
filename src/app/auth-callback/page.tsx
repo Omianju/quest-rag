@@ -24,7 +24,7 @@ const AuthCallbackPage = () => {
     } else if (isError) {
       router.push("/sign-in");
     }
-  }, [isSuccess, isError, origin, router]);
+  }, [isSuccess, isError]);
 
   return (
     <div className="w-full mt-24 flex justify-center">
