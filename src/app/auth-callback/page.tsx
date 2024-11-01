@@ -2,7 +2,7 @@
 
 import { useRouter, useSearchParams } from "next/navigation";
 import { trpc } from "../_trpc/client";
-import { useEffect } from "react";
+import { Suspense, useEffect } from "react";
 import { Loader2 } from "lucide-react";
 
 const AuthCallbackPage = () => {
@@ -37,4 +37,20 @@ const AuthCallbackPage = () => {
   );
 };
 
-export default AuthCallbackPage;
+
+export default function AuthCallbackPageWrapper() {
+  return (
+    <Suspense
+      fallback={
+        <div className="w-full mt-24 flex justify-center">
+          <Loader2 className="h-8 w-8 animate-spin text-zinc-800" />
+        </div>
+      }
+    >
+      <AuthCallbackPage />
+    </Suspense>
+  );
+}
+
+
+
