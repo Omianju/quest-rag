@@ -45,7 +45,7 @@ export const ourFileRouter = {
         const pageLevelDocs = await loader.load();
         
         // left for pdfLength
-        pageLevelDocs.length;
+        // pageLevelDocs.length;
       
         // vectorizing and index entire document
 

@@ -1,5 +1,11 @@
 import { getUserSubscriptionPlan } from "@/lib/stripe";
-import React from "react";
+import { LogoutLink } from "@kinde-oss/kinde-auth-nextjs/components";
+import { Gem } from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
+import { Icons } from "./Icons";
+import { Avatar, AvatarFallback } from "./ui/avatar";
+import { Button } from "./ui/button";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -7,13 +13,6 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "./ui/dropdown-menu";
-import { Button } from "./ui/button";
-import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
-import { Icons } from "./Icons";
-import Image from "next/image";
-import { Gem } from "lucide-react";
-import Link from "next/link";
-import { LogoutLink } from "@kinde-oss/kinde-auth-nextjs/components";
 
 interface UserAccountNavProps {
   name: string;

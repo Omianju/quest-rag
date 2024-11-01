@@ -8,9 +8,9 @@ import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
 import { ArrowRight, Check, HelpCircle, Minus } from "lucide-react";
 import Link from "next/link";
 
-type Props = {};
 
-export default async function PricingPage({}: Props) {
+
+export default async function PricingPage() {
     const {getUser} = getKindeServerSession()
     const user = await getUser()
     const pricingItems = [
