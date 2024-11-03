@@ -38,6 +38,7 @@ const AuthCallbackPage = () => {
 };
 
 
+
 export default function AuthCallbackPageWrapper() {
   return (
     <Suspense
@@ -51,6 +52,5 @@ export default function AuthCallbackPageWrapper() {
     </Suspense>
   );
 }
-
 
 
