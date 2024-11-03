@@ -1,3 +1,5 @@
+
+
 import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
 import { privateProcedure, publicProcedure, router } from "./trpc";
 import { TRPCError } from "@trpc/server";
@@ -151,7 +153,7 @@ export const appRouter = router({
       };
     }),
 
-  createStripeSession: privateProcedure.mutation(async ({ ctx }) => {
+    createStripeSession: privateProcedure.mutation(async ({ ctx }) => {
     
       const { userId } = ctx;
 
@@ -159,7 +161,7 @@ export const appRouter = router({
 
       if (!userId) throw new TRPCError({ code: "UNAUTHORIZED" });
 
-      const dbUser = await db.user.findFirst({
+      const dbUser = await db.user.findUnique({
         where: {
           id: userId,
         },
