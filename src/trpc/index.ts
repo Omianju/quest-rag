@@ -181,8 +181,8 @@ export const appRouter = router({
       }
       
       const stripeSession = await stripe.checkout.sessions.create({
-        success_url: `http://localhost:3000${billingUrl}`,
-        cancel_url: `http://localhost:3000${billingUrl}`,
+        success_url: billingUrl,
+        cancel_url: billingUrl,
         payment_method_types: ["card", "paypal"],
         mode: "subscription",
         billing_address_collection: "auto",
