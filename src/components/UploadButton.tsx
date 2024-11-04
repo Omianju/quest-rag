@@ -12,11 +12,13 @@ import { trpc } from "@/app/_trpc/client";
 import { useRouter } from "next/navigation";
 import { Loader2 } from "lucide-react";
 
-const UploadDropZone = () => {
+const UploadDropZone = ({ isSubscribed }: { isSubscribed: boolean }) => {
   const [isUploading, setIsUploading] = useState<boolean>(true);
   const [uploadProgress, setUploadProgress] = useState<number>(0);
 
-  const { startUpload } = useUploadThing("pdfUploader");
+  const { startUpload } = useUploadThing(
+    isSubscribed ? "proPlanUploader" : "freePlanUploader"
+  );
   const { toast } = useToast();
   const router = useRouter();
 
@@ -94,7 +96,7 @@ const UploadDropZone = () => {
                   <span className="font-semibold">Click to upload</span> or drag
                   and drop
                 </p>
-                <p className="text-xs text-zinc-500">PDF (up to 4 MB)</p>
+                <p className="text-xs text-zinc-500">PDF (up to {isSubscribed ? "14" : "4"} MB)</p>
               </div>
 
               {acceptedFiles && acceptedFiles[0] ? (
@@ -139,7 +141,7 @@ const UploadDropZone = () => {
   );
 };
 
-export const UploadButton = () => {
+export const UploadButton = ({ isSubscribed }: { isSubscribed: boolean }) => {
   const [isOpen, setIsOpen] = useState(false);
   return (
     <Dialog open={isOpen} onOpenChange={(v) => setIsOpen(v)}>
@@ -147,7 +149,7 @@ export const UploadButton = () => {
         <Button>Upload PDF</Button>
       </DialogTrigger>
       <DialogContent>
-        <UploadDropZone />
+        <UploadDropZone isSubscribed={isSubscribed}/>
       </DialogContent>
     </Dialog>
   );
