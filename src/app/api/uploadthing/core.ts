@@ -77,13 +77,15 @@ const onUploadComplete = async ({
 
     if ((isSubscribed && isProExceeded) || (!isSubscribed && isFreeExceeded)) {
       await db.file.update({
-        where: {
-          id: createdFile.id,
-        },
         data: {
           uploadStatus: "FAILED",
         },
+        where: {
+          id: createdFile.id,
+        },
       });
+
+      return;
     }
 
     // vectorizing and index entire document
@@ -121,8 +123,6 @@ const onUploadComplete = async ({
     });
   }
 };
-
-
 
 // Upload Thing Router for authenticating and processing the data after uploading
 
