@@ -30,4 +30,4 @@ Welcome to **AI-Powered PDF Chat** – an advanced platform that enables seamles
 
 1. **Clone the Repository**:
    ```bash
-   git clone https://github.com/your-username/ai-powered-pdf-chat.git
+   git clone https://github.com/omianju/ai-powered-pdf-chat.git
