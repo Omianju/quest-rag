@@ -1,6 +1,5 @@
 import db from "@/lib/db";
 import { stripe } from "@/lib/stripe";
-import { log } from "console";
 import { headers } from "next/headers";
 import type Stripe from "stripe";
 
