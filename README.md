@@ -1,36 +1,33 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# AI-Powered PDF Chat
 
-## Getting Started
+Welcome to **AI-Powered PDF Chat** – an advanced platform that enables seamless, interactive conversations with PDF documents. Designed for convenience and efficiency, this project leverages **TypeScript**, **tRPC**, **Uploadthings**, **Kinde authentication**, **vector embedding**, and **LangChain.js** to create a powerful, secure, and scalable tool for extracting knowledge from PDF content with high precision.
 
-First, run the development server:
+## 🌟 Features
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- **AI-Powered Interaction**: Engage in meaningful, interactive conversations directly with PDF files. The AI parses and contextualizes document content, offering responsive and relevant answers in real time.
+- **Precision with Vector Embeddings**: Utilizing vector embeddings to deliver accurate responses based on PDF content, ensuring nuanced and contextually relevant answers.
+- **Built with LangChain.js**: Harnessing LangChain.js for efficient and structured conversational flows, enhancing the AI's ability to handle complex document interactions.
+- **Secure Access Control**: Integrated with **Kinde** for robust user authentication, ensuring a secure and personalized experience for each user.
+- **Efficient Document Uploading**: Powered by **Uploadthings**, document uploads are managed smoothly and efficiently, supporting various file types with ease.
+- **TypeScript & tRPC for Robustness**: **TypeScript** ensures type safety and scalability, while **tRPC** facilitates seamless client-server communication, streamlining the architecture for better performance and maintainability.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 📂 Project Structure
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- **Backend**: Built with **tRPC**, facilitating efficient API calls and real-time interactions with the AI.
+- **Frontend**: **TypeScript** ensures a strong, type-safe client that communicates effectively with the server.
+- **Authentication**: Managed by **Kinde** to secure user sessions and ensure smooth, personalized interactions.
+- **File Uploads**: **Uploadthings** handles document management, providing an intuitive and secure file upload process.
+- **Vector Embeddings & LangChain.js**: Using LangChain.js and vector embeddings to achieve accurate, context-aware responses tailored to the content of each PDF.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 🛠️ Challenges Faced
 
-## Learn More
+1. **Optimizing AI Response Accuracy**: Crafting responses that accurately reflect the nuances of the PDF content was challenging. Vector embeddings, combined with LangChain.js, were used to balance precision with natural language flow.
+2. **Ensuring Scalable Authentication**: Implementing Kinde for secure and scalable authentication involved fine-tuning for performance and robust user session management.
+3. **Handling Large PDF Files**: Managing file size limitations and optimizing upload efficiency to ensure quick response times, especially for larger PDFs, required integrating efficient file handling solutions.
+4. **Maintaining Type Safety Across the Stack**: With TypeScript as the backbone, maintaining type integrity across components and ensuring compatibility between the client and server in tRPC was essential but required meticulous type management.
 
-To learn more about Next.js, take a look at the following resources:
+## 🚀 Getting Started
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+1. **Clone the Repository**:
+   ```bash
+   git clone https://github.com/omianju/ai-powered-pdf-chat.git
