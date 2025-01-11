@@ -3,6 +3,12 @@ import { getUserSubscriptionPlan } from "@/lib/stripe";
 import React from "react";
 import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
 import { redirect } from "next/navigation";
+import { Metadata } from "next";
+
+export const metadata : Metadata = {
+  title : "Billing"
+}
+
 
 const BillingPage = async () => {
   const { getUser } = getKindeServerSession();

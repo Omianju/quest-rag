@@ -1,44 +1,42 @@
-import db from "@/lib/db"
-import { stripe } from '@/lib/stripe'
-import { headers } from 'next/headers'
-import type Stripe from 'stripe'
+import db from "@/lib/db";
+import { stripe } from "@/lib/stripe";
+import { log } from "console";
+import { headers } from "next/headers";
+import type Stripe from "stripe";
 
 export async function POST(request: Request) {
-  const body = await request.text()
-  const signature = headers().get('Stripe-Signature') ?? ''
+  const body = await request.text();
+  const signature = headers().get("Stripe-Signature") ?? "";
 
-  let event: Stripe.Event
+  let event: Stripe.Event;
 
   try {
     event = stripe.webhooks.constructEvent(
       body,
       signature,
-      process.env.STRIPE_WEBHOOK_SECRET || ''
-    )
+      process.env.STRIPE_WEBHOOK_SECRET || ""
+    );
   } catch (err) {
     return new Response(
-      `Webhook Error: ${
-        err instanceof Error ? err.message : 'Unknown Error'
-      }`,
+      `Webhook Error: ${err instanceof Error ? err.message : "Unknown Error"}`,
       { status: 400 }
-    )
+    );
   }
 
-  const session = event.data
-    .object as Stripe.Checkout.Session
+  const session = event.data.object as Stripe.Checkout.Session;
 
   if (!session?.metadata?.userId) {
     return new Response(null, {
       status: 200,
-    })
+    });
   }
 
-  if (event.type === 'checkout.session.completed') {
-    const subscription =
-      await stripe.subscriptions.retrieve(
-        session.subscription as string
-      )
-
+  if (event.type === "checkout.session.completed") {
+    const subscription = await stripe.subscriptions.retrieve(
+      session.subscription as string
+    );
+    console.log(subscription);
+    
     await db.user.update({
       where: {
         id: session.metadata.userId,
@@ -51,16 +49,16 @@ export async function POST(request: Request) {
           subscription.current_period_end * 1000
         ),
       },
-    })
+    });
   }
 
-  if (event.type === 'invoice.payment_succeeded') {
+  if (event.type === "invoice.payment_succeeded") {
     // Retrieve the subscription details from Stripe.
-    const subscription =
-      await stripe.subscriptions.retrieve(
-        session.subscription as string
-      )
-
+    const subscription = await stripe.subscriptions.retrieve(
+      session.subscription as string
+    );
+    console.log("subscription :", subscription);
+    
     await db.user.update({
       where: {
         stripeSubscriptionId: subscription.id,
@@ -71,8 +69,8 @@ export async function POST(request: Request) {
           subscription.current_period_end * 1000
         ),
       },
-    })
+    });
   }
 
-  return new Response(null, { status: 200 })
+  return new Response(null, { status: 200 });
 }

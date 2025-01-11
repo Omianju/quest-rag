@@ -11,6 +11,9 @@ interface Props {
   };
 }
 
+
+
+
 const FileIdPage = async ({ params }: Props) => {
   const { fileId } = params;
   const { getUser } = getKindeServerSession();

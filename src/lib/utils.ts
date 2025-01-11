@@ -36,7 +36,10 @@ export function constructMetadata({
   noIndex?: boolean;
 } = {}): Metadata {
   return {
-    title,
+    title : {
+      default : "QuestRag - the SaaS for readers",
+      template : "%s - QuestRag"
+    },
   description,
   openGraph : {
     title,
@@ -56,7 +59,6 @@ export function constructMetadata({
   },
   icons,
   metadataBase : new URL("https://quest-rag.vercel.app"),
-  themeColor : "#FFF",
   ...(noIndex && {
     robots : {
       follow : false,

@@ -6,8 +6,13 @@ import { PLANS } from "@/config/stripe";
 import { cn } from "@/lib/utils";
 import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
 import { ArrowRight, Check, HelpCircle, Minus } from "lucide-react";
+import { Metadata } from "next";
 import Link from "next/link";
 
+
+export const metadata : Metadata = {
+  title : "Pricing"
+}
 
 
 export default async function PricingPage() {
