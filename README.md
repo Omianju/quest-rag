@@ -2,6 +2,10 @@
 
 Welcome to **AI-Powered PDF Chat** – an advanced platform that enables seamless, interactive conversations with PDF documents. Designed for convenience and efficiency, this project leverages **TypeScript**, **tRPC**, **Uploadthings**, **Kinde authentication**, **vector embedding**, and **LangChain.js** to create a powerful, secure, and scalable tool for extracting knowledge from PDF content with high precision.
 
+🔗 **Live Demo**:  
+[![Watch the video](https://cdn.loom.com/sessions/thumbnails/40ebe3e7220b4fd286b50f94b36420f7-c39942bea4942242-full-play.gif)](https://www.loom.com/share/40ebe3e7220b4fd286b50f94b36420f7?sid=1ff8dc17-3b6d-45b8-bfb2-528cb7ba0349)
+
+
 ## 🌟 Features
 
 - **AI-Powered Interaction**: Engage in meaningful, interactive conversations directly with PDF files. The AI parses and contextualizes document content, offering responsive and relevant answers in real time.
