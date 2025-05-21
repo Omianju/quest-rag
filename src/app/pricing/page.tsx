@@ -25,7 +25,7 @@ export default async function PricingPage() {
           quota: 10,
           features: [
             {
-              text: '5 pages per PDF',
+              text: '12 pages per PDF',
               footnote:
                 'The maximum amount of pages per PDF-file.',
             },
